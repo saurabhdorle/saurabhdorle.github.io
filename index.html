@@ -1,611 +1,850 @@
 <!DOCTYPE html>
-
 <html lang="en">
-  <head>
-    <title>Saurabh Dorle &mdash;</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Saurabh Dorle — AI / ML Architect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg2: #161b22;
+    --bg3: #1c2330;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --teal: #2dd4bf;
+    --teal-dim: rgba(45,212,191,0.12);
+    --teal-glow: rgba(45,212,191,0.06);
+    --amber: #f59e0b;
+    --amber-dim: rgba(245,158,11,0.1);
+    --text: #e6edf3;
+    --text2: #8b949e;
+    --text3: #6e7681;
+    --font-head: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
 
-    
-    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/flexslider.css">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
+  html { scroll-behavior: smooth; }
 
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
 
-    
-  </head>
-  <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
-  
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 2.5rem;
+    background: rgba(13,17,23,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--font-head);
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--teal); letter-spacing: 0.04em;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-size: 0.85rem; color: var(--text2); text-decoration: none;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal); }
 
-   
-    <nav class="navbar navbar-expand-lg site-navbar navbar-light bg-light" id="pb-navbar">
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 2.5rem 5rem;
+    max-width: 1100px; margin: 0 auto;
+    position: relative;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+    width: 100%;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.8rem; font-weight: 500;
+    color: var(--teal);
+    letter-spacing: 0.14em; text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block; width: 2rem; height: 1px;
+    background: var(--teal);
+  }
 
-      <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  /* PROFILE PHOTO */
+  .profile-mini {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.75rem;
+  }
+  .profile-photo-wrap {
+    position: relative; flex-shrink: 0;
+  }
+  .profile-photo {
+    width: 72px; height: 72px; border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--teal);
+    display: block;
+    background: var(--bg3);
+  }
+  .profile-photo-placeholder {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--teal-dim);
+    border: 2px solid rgba(45,212,191,0.35);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-head);
+    font-size: 1.5rem; font-weight: 800;
+    color: var(--teal); flex-shrink: 0;
+  }
+  .profile-photo-wrap::after {
+    content: '';
+    position: absolute; bottom: 3px; right: 3px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: #22c55e; border: 2px solid var(--bg);
+  }
+  .profile-name {
+    font-family: var(--font-head);
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--text); line-height: 1.2;
+  }
+  .profile-title-tag {
+    font-size: 0.78rem; color: var(--text2);
+    font-weight: 300; margin-top: 0.2rem;
+  }
+  .profile-badge {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    background: var(--teal-dim); border: 1px solid rgba(45,212,191,0.2);
+    border-radius: 20px; padding: 0.2rem 0.65rem;
+    font-size: 0.7rem; color: var(--teal);
+    font-weight: 500; margin-top: 0.4rem;
+    letter-spacing: 0.04em;
+  }
+  .profile-badge::before {
+    content: ''; width: 6px; height: 6px;
+    border-radius: 50%; background: #22c55e; flex-shrink: 0;
+  }
+  .hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    font-weight: 800; line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 span { color: var(--teal); }
+  .hero-desc {
+    color: var(--text2); font-size: 1.05rem;
+    max-width: 42ch; margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+  .hero-cta {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--teal); color: #0d1117;
+    font-family: var(--font-body); font-weight: 500;
+    font-size: 0.9rem; padding: 0.75rem 1.75rem;
+    border-radius: 6px; text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: opacity 0.2s, transform 0.15s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: transparent; color: var(--text);
+    font-family: var(--font-body); font-weight: 400;
+    font-size: 0.9rem; padding: 0.75rem 1.75rem;
+    border-radius: 6px; text-decoration: none;
+    border: 1px solid var(--border2);
+    letter-spacing: 0.02em;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    cursor: pointer;
+  }
+  .btn-outline:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-1px); }
 
-        <a class="navbar-brand" href="index.html">Saurabh</a>
-        <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample09">
-          <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="#section-home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#section-about">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="#section-portfolio">Portfolio</a></li>
-            <li class="nav-item"><a class="nav-link" href="#section-publications">Publications</a></li>
-            <li class="nav-item"><a class="nav-link" href="#section-blog">Blog</a></li>
-            <li class="nav-item"><a class="nav-link" href="#section-contact">Contact</a></li>
-          </ul>
+  /* HERO RIGHT — stat cards */
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .stat-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.25rem 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .stat-card:hover { border-color: var(--teal); transform: translateY(-2px); }
+  .stat-card.accent { border-color: rgba(45,212,191,0.25); background: var(--teal-dim); }
+  .stat-num {
+    font-family: var(--font-head);
+    font-size: 2rem; font-weight: 800;
+    color: var(--teal); line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 0.8rem; color: var(--text2);
+    font-weight: 400; line-height: 1.4;
+  }
+
+  /* SECTION COMMON */
+  section { padding: 5rem 2.5rem; max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    font-size: 0.75rem; font-weight: 500;
+    color: var(--teal); letter-spacing: 0.14em;
+    text-transform: uppercase; margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .section-tag::before {
+    content: ''; display: inline-block;
+    width: 1.5rem; height: 1px; background: var(--teal);
+  }
+  .section-title {
+    font-family: var(--font-head);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 700; color: var(--text);
+    letter-spacing: -0.02em; margin-bottom: 3rem;
+    line-height: 1.15;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 3rem; align-items: start;
+  }
+  .about-text p {
+    color: var(--text2); margin-bottom: 1.2rem;
+    font-weight: 300; font-size: 1rem;
+  }
+  .about-text p strong { color: var(--text); font-weight: 500; }
+  .book-card {
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    border-left: 3px solid var(--amber);
+    border-radius: 10px; padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .book-label {
+    font-size: 0.72rem; color: var(--amber);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 0.5rem; font-weight: 500;
+  }
+  .book-title {
+    font-family: var(--font-head);
+    font-size: 1rem; font-weight: 700;
+    color: var(--text); margin-bottom: 0.4rem;
+  }
+  .book-sub { font-size: 0.85rem; color: var(--text2); font-weight: 300; }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .skill-group {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .skill-group:hover { border-color: var(--teal); }
+  .skill-group-title {
+    font-family: var(--font-head);
+    font-size: 0.9rem; font-weight: 700;
+    color: var(--teal); margin-bottom: 1rem;
+    letter-spacing: 0.04em;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag {
+    font-size: 0.78rem; color: var(--text2);
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 4px; padding: 0.3rem 0.65rem;
+    font-weight: 400;
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.25rem;
+  }
+  .project-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.2s;
+    display: flex; flex-direction: column;
+  }
+  .project-card:hover { border-color: var(--teal); transform: translateY(-3px); }
+  .project-icon {
+    width: 40px; height: 40px; border-radius: 8px;
+    background: var(--teal-dim); border: 1px solid rgba(45,212,191,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; margin-bottom: 1.25rem;
+  }
+  .project-title {
+    font-family: var(--font-head);
+    font-size: 1.05rem; font-weight: 700;
+    color: var(--text); margin-bottom: 0.6rem;
+  }
+  .project-desc {
+    font-size: 0.9rem; color: var(--text2);
+    font-weight: 300; margin-bottom: 1.25rem;
+    flex: 1; line-height: 1.6;
+  }
+  .project-impact {
+    font-size: 0.8rem; color: var(--teal);
+    font-weight: 500; margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .project-impact::before { content: '↑'; }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .stack-tag {
+    font-size: 0.72rem; color: var(--text3);
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 3px; padding: 0.2rem 0.55rem;
+  }
+
+  /* EXPERIENCE */
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .timeline-item {
+    display: grid; grid-template-columns: 160px 1fr;
+    gap: 2rem; padding-bottom: 2.5rem;
+    position: relative;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: 168px; top: 8px; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .timeline-item:last-child::before { display: none; }
+  .timeline-item::after {
+    content: '';
+    position: absolute; left: 163px; top: 6px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--teal); border: 2px solid var(--bg);
+    box-shadow: 0 0 0 3px var(--teal-dim);
+  }
+  .timeline-period {
+    font-size: 0.8rem; color: var(--text3);
+    font-weight: 400; padding-top: 0.1rem;
+    text-align: right;
+  }
+  .timeline-body {}
+  .timeline-role {
+    font-family: var(--font-head);
+    font-size: 1rem; font-weight: 700;
+    color: var(--text); margin-bottom: 0.2rem;
+  }
+  .timeline-company {
+    font-size: 0.85rem; color: var(--teal);
+    margin-bottom: 0.75rem; font-weight: 400;
+  }
+  .timeline-points { list-style: none; }
+  .timeline-points li {
+    font-size: 0.88rem; color: var(--text2);
+    font-weight: 300; padding: 0.2rem 0;
+    padding-left: 1rem; position: relative;
+  }
+  .timeline-points li::before {
+    content: '—'; position: absolute; left: 0;
+    color: var(--teal); font-size: 0.75rem;
+  }
+
+  /* CALENDLY */
+  .calendly-section {
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    border-radius: 16px; padding: 3rem;
+    text-align: center; margin: 0 auto;
+    max-width: 680px;
+  }
+  .calendly-icon {
+    font-size: 2.5rem; margin-bottom: 1rem;
+  }
+  .calendly-section h2 {
+    font-family: var(--font-head);
+    font-size: 1.75rem; font-weight: 700;
+    color: var(--text); margin-bottom: 0.75rem;
+  }
+  .calendly-section p {
+    color: var(--text2); font-weight: 300;
+    margin-bottom: 2rem; font-size: 0.95rem;
+  }
+  .calendly-embed-placeholder {
+    background: var(--bg3);
+    border: 1px dashed var(--border2);
+    border-radius: 10px; padding: 2rem;
+    color: var(--text3); font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* CONTACT */
+  .contact-links {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    justify-content: center; margin-top: 2rem;
+  }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--bg2); border: 1px solid var(--border2);
+    border-radius: 8px; padding: 0.75rem 1.5rem;
+    color: var(--text2); text-decoration: none;
+    font-size: 0.9rem; font-weight: 400;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .contact-link:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+  .contact-link svg { width: 16px; height: 16px; }
+
+  /* DIVIDER */
+  .divider {
+    max-width: 1100px; margin: 0 auto;
+    border: none; border-top: 1px solid var(--border);
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 2rem;
+    color: var(--text3); font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+  }
+
+  /* SCROLL ANIM */
+  .fade-up {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.25rem; }
+    .nav-links { gap: 1.25rem; }
+    .hero { padding: 7rem 1.25rem 4rem; }
+    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    section { padding: 4rem 1.25rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .timeline-item::before { display: none; }
+    .timeline-item::after { display: none; }
+    .timeline-period { text-align: left; }
+    .calendly-section { padding: 2rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Saurabh Dorle</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#connect">Connect</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="profile-mini">
+        <div class="profile-photo-wrap">
+          <!-- Replace 'profile.jpg' with your actual photo filename -->
+          <img src="profile.jpg" alt="Saurabh Dorle" class="profile-photo"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="profile-photo-placeholder" style="display:none;">S</div>
+        </div>
+        <div>
+          <div class="profile-name">Saurabh Dorle</div>
+          <div class="profile-title-tag">AI / ML Architect · Pune, India</div>
+          <div class="profile-badge">Open to Work</div>
         </div>
       </div>
-    </nav>
-    
-
-   
-    
-    <section class="site-hero" style="background-image: url(images/image_1.jpg);" id="section-home" data-stellar-background-ratio="0.5">
-      <div class="container">
-        <div class="row intro-text align-items-center justify-content-center">
-          <div class="col-md-10 text-center">
-            <h1 class="site-heading site-animate">Hello, I'm <strong>Saurabh Dorle</strong></h1>
-            <p class="lead site-subheading mb-4 site-animate">Data science | NLP</p>
-            <p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More On Me</a></p>
-          </div>
-        </div>
+      <div class="hero-eyebrow">MLOps Author · IEEE Researcher</div>
+      <h1>Building AI Systems<br>That <span>Scale.</span></h1>
+      <p class="hero-desc">
+        7+ years designing production-grade ML and GenAI systems — from LLM pipelines and RAG architectures to end-to-end MLOps platforms. Open to remote opportunities across EU, US, and India.
+      </p>
+      <div class="hero-cta">
+        <a href="#connect" class="btn-primary">Book a Call →</a>
+        <a href="#projects" class="btn-outline">View Work</a>
+        <a href="Saurabh_Resume.pdf" target="_blank" rel="noopener" class="btn-outline" style="gap:0.5rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Resume
+        </a>
       </div>
-    </section> <!-- section -->
-
-  
-    <section class="site-section" id="section-about">
-      <div class="container">
-        <div class="row mb-5 align-items-center">
-          <div class="col-lg-7 pr-lg-5 mb-5 mb-lg-0">
-            <img src="images/image_1_long.JPG" alt="Image placeholder" class="img-fluid">
-          </div>
-          <div class="col-lg-5 pl-lg-5">
-            <div class="section-heading">
-              <h2>About <strong>Me</strong></h2>
-            </div>
-            <p class="lead">Engineer | Thinker | Reader | Guitarist</p>
-            <p class="mb-5  ">I am Data Scientist with Masters degree in Computer Engineering. I have worked on Machine learning, Deep Learning, Natural Language Processing & Image Processing. Successfully presented & published two papers in IEEE conferences. Currently working as full time Data Scientist. Apart from Data Science I like to read books and play Guitar.</p>
-
-            <p>
-              <a href="#section-contact" class="btn btn-primary px-4 py-2 btn-sm smoothscroll">Hire Me</a>
-              <a href="cv/Saurabh Dorle-CV.pdf" target="_blank" class="btn btn-secondary px-4 py-2 btn-sm">Download CV</a>
-            </p>
-          </div>
-        </div>
-	<div class="row pt-5">
-          <div class="col-md-3 mb-3">
-            <div class="section-heading">
-              <h2>My <strong>Skills</strong></h2>
-            </div>
-          </div>
-          <div class="col-md-9">
-            <div class="skill">
-              <h3>Python</h3>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                  <span>75%</span>
-                </div>
-              </div>
-            </div>
- 	    
-	    <div class="skill">
-              <h3>MySQL</h3>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-                  <span>60%</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="skill">
-              <h3>Data Analytics/Visualization</h3>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                  <span>80%</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="skill">
-              <h3>Machine Learning/Deep Learning`</h3>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-                  <span>65%</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="skill">
-              <h3>Natural Language Processing(NLP)</h3>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-                  <span>65%</span>
-                </div>
-              </div>
-            </div>
-		
-              
-            <div class="skill">
-              <h3>DevOps/AWS</h3>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-                  <span>60%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card accent">
+        <div class="stat-num">7+</div>
+        <div class="stat-label">Years in AI/ML production systems</div>
       </div>
-    </section>
-
-	
-
-    <section class="site-section bg-light " id="section-resume">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 mb-5">
-            <div class="section-heading text-center">
-              <h2>My <strong>Resume</strong></h2>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <h2 class="mb-5">Education</h2>
-            <div class="resume-item mb-4">
-              <span class="date"><span class="icon-calendar"></span> August 2016 - October 2018</span>
-              <h3>Master's in Copmuter Engineering</h3>
-              <p>8.01 CGPA</p>
-              <span class="school">Pune University</span>
-            </div>
-
-            <div class="resume-item mb-4">
-              <span class="date"><span class="icon-calendar"></span> August 2011 - August 2014</span>
-              <h3>Bachelor's in Copmuter Engineering</h3>
-              <p>64.04%</p>
-              <span class="school">Pune University</span>
-            </div>
-
-            <div class="resume-item mb-4">
-              <span class="date"><span class="icon-calendar"></span> March 2013 - Present</span>
-              <h3>Diploma in Copmuter Engineering</h3>
-              <p>77.45%</p>
-              <span class="school">MSBTE</span>
-            </div>
-
-          </div>
-          <div class="col-md-6">
-            
-
-            <h2 class="mb-5">Experience</h2>
-
-            <div class="resume-item mb-4">
-              <span class="date"><span class="icon-calendar"></span> December 2019 - Present</span>
-              <h3>Data Scientist</h3>
-              <p>Responsible for analyzing data and identifying problem statements, design & implement end to end solution leading to enhanced user engagement for rewards/loyalty programs.</p>
-            </div>
-
-            <div class="resume-item mb-4">
-              <span class="date"><span class="icon-calendar"></span> February 2019 - December 2019</span>
-              <h3>Data Science Consultant</h3>
-              <p>Provided solutions based on data to increase user engagement for movie broadcast channels. Development & deployment of NLP POCs.</p>
-            </div>
-
-            <div class="resume-item mb-4">
-              <span class="date"><span class="icon-calendar"></span> May 2019 - November 2019</span>
-              <h3>Technical Reviewer</h3>
-              <p>Provided a technical review for the coursework of 'Masters Interactive Data Visualization with Python'.</p>
-            </div>
-
-
-          </div>
-        </div>
+      <div class="stat-card">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Published book on MLOps</div>
       </div>
-    </section> <!-- .section -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <section class="site-section bg-light" id="section-portfolio">
-      <div class="container">
-        <div class="row">
-          <div class="section-heading text-center col-md-12">
-              <h2><strong>Portfolio</strong></h2>
-            </div>
-        </div>
-        <div class="filters">
-                        <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".nlp">NLP</li>
-                            <li data-filter=".imageprocessing">Image/Vision Processing</li>
-                            <li data-filter=".timeseries">Time Series</li>
-                            <li data-filter=".miniprojects">Mini Projects</li>
-                        </ul>
-                    </div>
-
-
-		    <div class="filters-content">
-                        <div class="row grid">
-                            <div class="single-portfolio col-sm-4 all nlp">
-                              <div class="relative">
-                                <div class="thumb">
-                                  <div class="overlay overlay-bg"></div>
-                                   <a href="https://github.com/saurabhdorle/Spam-detection" target="_blank"><img class="image img-fluid" src="images/p1.jpg" alt=""></a>				    
-                                </div>
-                  <a href="images/p1.jpg" class="img-pop-up">  
-                    <div class="middle">
-                      <div class="text align-self-center d-flex"><img src="images/preview.png" alt=""></div>
-                    </div>
-                </a>                                  
-                              </div>
-                <div class="p-inner">
-			<div class="projects_text">
-				<a href="https://github.com/saurabhdorle/Spam-detection" target="_blank"><h4>Spam Detection</h4></a>
-			</div>                    
-                  <div class="cat">NLP</div>
-                </div>                                         
-                            </div>
-
-
-
-                            <div class="single-portfolio col-sm-4 all imageprocessing">
-                              <div class="relative">
-                                <div class="thumb">
-                                  <div class="overlay overlay-bg"></div>
-                                   <a href="https://github.com/saurabhdorle/Real-Time-Emotion-Detection" target="_blank"><img class="image img-fluid" src="images/p2.jpg" alt=""></a>
-                                </div>
-                  <a href="images/p2.jpg" class="img-pop-up">  
-                    <div class="middle">
-                      <div class="text align-self-center d-flex"><img src="images/preview.png" alt=""></div>
-                    </div>
-                </a>                                  
-                              </div>
-                <div class="p-inner">
-		    <div class="projects_text">
-		     <a href="https://github.com/saurabhdorle/Real-Time-Emotion-Detection" target="_blank"><h4>Real Time Emotion Detector</h4></a>
-		    </div>
-                  <div class="cat">Image Processing</div>
-                </div>                                         
-                            </div>           
-
-
-                 
-                            <div class="single-portfolio col-sm-4 all imageprocessing">
-                              <div class="relative">
-                                <div class="thumb">
-                                  <div class="overlay overlay-bg"></div>
-                                   <a href="https://github.com/saurabhdorle/Image-Classification-CNN" target="_blank"><img class="image img-fluid" src="images/p3.jpg" alt=""></a>
-                                </div>
-                  <a href="images/p3.jpg" class="img-pop-up">  
-                    <div class="middle">
-                      <div class="text align-self-center d-flex"><img src="images/preview.png" alt=""></div>
-                    </div>
-                  </a>                                 
-
-                              </div>
-                                <div class="p-inner">  
- 				    <div class="projects_text">
-		       		    <a href="https://github.com/saurabhdorle/Image-Classification-CNN" target="_blank"><h4>Image Classification Using CNN</h4></a>
-			        </div>
-                                    <div class="cat">Image Processing</div>
-                                </div>
-                            </div>
-
-
-                            <div class="single-portfolio col-sm-4 all timeseries">
-                              <div class="relative">
-                                <div class="thumb">
-                                  <div class="overlay overlay-bg"></div>
-                                   <a href="https://github.com/saurabhdorle/Time-Series-Analysis" target="_blank"><img class="image img-fluid" src="images/p4.jpg" alt=""></a>
-                                </div>
-                  <a href="images/p4.jpg" class="img-pop-up">  
-                    <div class="middle">
-                      <div class="text align-self-center d-flex"><img src="images/preview.png" alt=""></div>
-                    </div>
-                  </a>                                
-                              </div> 
-                                <div class="p-inner">
-                                    <div class="projects_text">
-		                      <a href="https://github.com/saurabhdorle/Time-Series-Analysis" target="_blank"><h4>Time Series Analysis</h4></a>
-                    		    </div>
-                                    <div class="cat">Time Series</div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="single-portfolio col-sm-4 all">
-                              <div class="relative">
-                              <div class="thumb">
-                                  <div class="overlay overlay-bg"></div>
-                                   <a href="https://github.com/saurabhdorle/Big-Mart-Sales-Prediction" target="_blank"><img class="image img-fluid" src="images/p5.jpg" alt=""></a>
-                                </div>
-                  <a href="images/p5.jpg" class="img-pop-up">  
-                    <div class="middle">
-                      <div class="text align-self-center d-flex"><img src="images/preview.png" alt=""></div>
-                    </div>
-                  </a>                                
-                              </div>
-                                <div class="p-inner">
-                                    <div class="projects_text">
-		                      <a href="https://github.com/saurabhdorle/Big-Mart-Sales-Prediction" target="_blank"><h4>Big-Mart Sales Prediction</h4></a>
-                    		    </div>
-                                    <div class="cat">Prediction</div>
-                                </div>
-                            </div>
-
-
-
-
-                            <div class="single-portfolio col-sm-4 all miniprojects">
-                              <div class="relative">
-                                <div class="thumb">
-                                  <div class="overlay overlay-bg"></div>
-                                   <a href="https://github.com/saurabhdorle/ML-Mini-Projects" target="_blank"><img class="image img-fluid" src="images/p6.jpg" alt=""></a>
-                                </div>
-                  <a href="images/p6.jpg" class="img-pop-up">  
-                    <div class="middle">
-                      <div class="text align-self-center d-flex"><img src="images/preview.png" alt=""></div>
-                    </div>
-                  </a>                                
-                              </div>
-                                <div class="p-inner">
-                                    <div class="projects_text">
-		                      <a href="https://github.com/saurabhdorle/ML-Mini-Projects" target="_blank"><h4>ML Mini Projects</h4></a>
-                    		    </div>
-                                    <div class="cat">Mini Projects</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      <div class="stat-card">
+        <div class="stat-num">IEEE</div>
+        <div class="stat-label">Published researcher</div>
       </div>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section class="site-section" id="section-publications">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 mb-5">
-            <div class="section-heading text-center">
-              <h2>Research <strong>Publications</strong></h2>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="row">
-          <div class="col-sm-6 col-lg-4 mb-4">
-            <div class="blog-entry">
-              <a href="https://ieeexplore.ieee.org/document/8487879" target="_blank"><img src="images/pub1.jpg" alt="Image placeholder" class="img-fluid"></a>
-              <div class="blog-entry-text">
-                <h3><a href="   ">Political Sentiment Assessment through Social Media</a></h3>
-                <p class="mb-4">International Conference on Data Science and Analytics</p>
-
-                <div class="meta">
-                  <a href="#"><span class="icon-calendar"></span>1-2 Dec. 2018</a>            
-		  <a href="certificates/certi1.jpg" target="_blank"><span class=""></span>Certificate</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-sm-6 col-lg-4 mb-4">
-            <div class="blog-entry">
-              <a href="https://ieeexplore.ieee.org/document/8487879" target="_blank"><img src="images/pub2.jpg" alt="Image placeholder" class="img-fluid"></a>
-              <div class="blog-entry-text">
-                <h3><a href="https://ieeexplore.ieee.org/document/8487879" target="_blank">Political Sentiment Analysis through Social Media</a></h3>
-                <p class="mb-4">2018 Second International Conference on Computing Methodologies and Communication (ICCMC) IEEE</p>
-
-                <div class="meta">
-                  <a href="#"><span class="icon-calendar"></span>15-16 Feb. 2018</a>
-		  <a href="certificates/certi2.jpg" target="_blank"><span class=""></span>Certificate</a>   
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-6 col-lg-4 mb-4">
-            <div class="blog-entry">
-              <a href="http://ijicse.in/wp-content/uploads/2017/11/2.pdf" target="_blank"><img src="images/pub3.jpg" alt="Image placeholder" class="img-fluid"></a>
-              <div class="blog-entry-text">
-                <h3><a href="http://ijicse.in/wp-content/uploads/2017/11/2.pdf" target="_blank">Sentiment Analysis Methods and Approach: Survey</a></h3>
-                <p class="mb-4">International Journal of Innovative Computer Science & Engineering (IJICSE), Volume 4 Issue 6; November-December 2017; Vol.4, Issue 6, Page No. 07-11</p>
-
-                <div class="meta">
-                  <a href="#"><span class="icon-calendar"></span> Aug 7, 2018</a>
-                  <a href="certificates/certi3.jpg" target="_blank"><span class=""></span>Certificate</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
+      <div class="stat-card">
+        <div class="stat-num">$M+</div>
+        <div class="stat-label">Business impact delivered via AI</div>
       </div>
-    </section>
+    </div>
+  </div>
+</div>
 
+<hr class="divider" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <section class="site-section" id="section-blog">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 mb-5">
-            <div class="section-heading text-center">
-              <h2>Blog on <strong>Medium</strong></h2>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-6 col-lg-4 mb-4">
-            <div class="blog-entry">
-              <a href="https://medium.com/omni-data-science/skills-required-for-data-scientist-745824092100" target="_blank"><img src="images/post_1.jpg" alt="Image placeholder" class="img-fluid"></a>
-              <div class="blog-entry-text">
-                <h3><a href="https://medium.com/omni-data-science/skills-required-for-data-scientist-745824092100" target="_blank">Skills required for Data Scientist</a></h3>
-                <p class="mb-4">What is Data Science? & Skill required to become Data Scientist</p>
-
-                <div class="meta">
-                  <a href="https://medium.com/omni-data-science/skills-required-for-data-scientist-745824092100" target="_blank"><span class="icon-calendar"></span> Apr 25, 2019</a>
-                  <a href="https://medium.com/omni-data-science/skills-required-for-data-scientist-745824092100" target="_blank"><span class="icon-bubble"></span> </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-         
-
-         
-
-        </div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-tag">About</div>
+  <div class="section-title">The problem I solve</div>
+  <div class="about-grid fade-up">
+    <div class="about-text">
+      <p>
+        Most AI projects fail not because the models are wrong — but because the <strong>systems around them weren't built to last.</strong> I design the architecture that keeps AI observable, scalable, and aligned with business outcomes in the real world.
+      </p>
+      <p>
+        My work spans <strong>LLM-powered systems</strong> (RAG pipelines, NL-to-SQL, Agentic AI), end-to-end <strong>MLOps platforms</strong>, and cloud-native deployments on AWS and GCP — serving real users at real scale.
+      </p>
+      <p>
+        I don't just build models. I design the full stack around them — from feature engineering and model registries to drift monitoring, CI/CD for ML, and stakeholder-facing dashboards that make AI legible to business teams.
+      </p>
+    </div>
+    <div>
+      <div class="book-card">
+        <div class="book-label">📖 Published Author</div>
+        <div class="book-title">Ultimate MLOps for Machine Learning Models</div>
+        <div class="book-sub">A practitioner's guide to deploying, monitoring, and scaling ML systems in production — drawing from real-world architecture decisions.</div>
       </div>
-    </section>
-
-    <section class="site-section bg-light" id="section-contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 mb-5">
-            <div class="section-heading text-center">
-              <h2><strong>Get </strong>in Touch</h2>
-            </div>
-          </div>
-          
-          <div class="col-md-7 mb-5 mb-md-0">
-            <form action="" class="site-form">
-              <h3 class="mb-5">Leave a Message</h3>
-              <div class="form-group">
-                <input type="text" class="form-control px-3 py-4" placeholder="Your Name">
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control px-3 py-4" placeholder="Your Email">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control px-3 py-4" placeholder="Subject">
-              </div>
-              <div class="form-group mb-5">
-                <textarea class="form-control px-3 py-4"cols="30" rows="10" placeholder="Write a Message"></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" class="btn btn-primary  px-4 py-3" value="Send Message">
-              </div>
-            </form>
-          </div>
-          <div class="col-md-5 pl-md-5">
-            <h3 class="mb-5">My Contact Details</h3>
-            <ul class="site-contact-details">
-              <li>
-                <span class="text-uppercase">Email</span>
-                sdd.saurabhd@gmail.com
-              </li>
-              <li>
-                <span class="text-uppercase">Phone</span>
-                +91 9762915558
-              </li>
-              <li>
-                <span class="text-uppercase">Address</span>
-                Pune, Maharashtra <br>
-                India
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div class="book-card" style="margin-top: 1rem; border-left-color: var(--teal);">
+        <div class="book-label" style="color: var(--teal);">🎓 IEEE Researcher · 3 Publications</div>
+        <div class="book-title">Political Sentiment Analysis Through Social Media</div>
+        <div class="book-sub">ICCMC 2018 (IEEE) · PuneCon 2018 (IEEE) · Best Research Paper Award, IEEE 2018 · Also published in IJICSE 2018</div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
+<hr class="divider" />
 
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row mb-3">
-          <div class="col-md-12 text-center">
-            <p>
-              <a href="https://www.facebook.com/saurabh.dorle" target="_blank" class="social-item"><span class="icon-facebook2"></span></a>
-              <a href="https://twitter.com/SAURABHDD" target="_blank" class="social-item"><span class="icon-twitter2"></span></a>
-              <a href="https://www.linkedin.com/in/saurabhdorle/" target="_blank" class="social-item"><span class="icon-linkedin2"></span></a>
-              <a href="https://github.com/saurabhdorle" target="_blank" class="social-item"><span class="icon-github"></span></a>
-              <a href="https://www.instagram.com/saurabhdd/" target="_blank" class="social-item"><span class="icon-instagram2"></span></a>
-            </p>
-          </div>
-        </div>
-        <div class="row">
-            <p class="col-12 text-center">
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved Colorlib <a></a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
-        </div>
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-tag">Skills</div>
+  <div class="section-title">What I work with</div>
+  <div class="skills-grid fade-up">
+    <div class="skill-group">
+      <div class="skill-group-title">LLM & GenAI</div>
+      <div class="skill-tags">
+        <span class="skill-tag">LLMs</span>
+        <span class="skill-tag">RAG Pipelines</span>
+        <span class="skill-tag">Agentic AI</span>
+        <span class="skill-tag">NL-to-SQL</span>
+        <span class="skill-tag">Prompt Engineering</span>
+        <span class="skill-tag">GenAI</span>
+        <span class="skill-tag">NLP</span>
       </div>
-    </footer>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">MLOps & Architecture</div>
+      <div class="skill-tags">
+        <span class="skill-tag">MLflow</span>
+        <span class="skill-tag">Apache Airflow</span>
+        <span class="skill-tag">CI/CD</span>
+        <span class="skill-tag">Drift Detection</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Kubernetes</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Cloud & Infrastructure</div>
+      <div class="skill-tags">
+        <span class="skill-tag">AWS S3</span>
+        <span class="skill-tag">AWS EC2</span>
+        <span class="skill-tag">AWS Lambda</span>
+        <span class="skill-tag">GCP BigQuery</span>
+        <span class="skill-tag">GCP Vertex AI</span>
+        <span class="skill-tag">Cloud Run</span>
+        <span class="skill-tag">GCP Composer</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Languages & Core ML</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">Keras</span>
+        <span class="skill-tag">Deep Learning</span>
+        <span class="skill-tag">Machine Learning</span>
+        <span class="skill-tag">Statistics</span>
+        <span class="skill-tag">Git</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-    
-    
+<hr class="divider" />
 
-    <script src="js/vendor/jquery.min.js"></script>
-    <script src="js/vendor/popper.min.js"></script>
-    <script src="js/vendor/bootstrap.min.js"></script>
-    
-    <script src="js/vendor/jquery.easing.1.3.js"></script>
-    <script src="js/vendor/jquery.stellar.min.js"></script>
-    <script src="js/vendor/jquery.waypoints.min.js"></script>
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-tag">Work</div>
+  <div class="section-title">Production systems I've built</div>
+  <div class="projects-grid fade-up">
+    <div class="project-card">
+      <div class="project-icon">🔍</div>
+      <div class="project-title">Enterprise RAG QnA Bot</div>
+      <div class="project-desc">RAG-based QnA system for enterprise document intelligence at Vodafone — enabling teams to search and retrieve information across large knowledge bases with high accuracy.</div>
+      <div class="project-impact">Cut manual search effort by 70–80%, saving 50+ engineering hours/month</div>
+      <div class="project-stack">
+        <span class="stack-tag">LLMs</span>
+        <span class="stack-tag">RAG</span>
+        <span class="stack-tag">AWS</span>
+        <span class="stack-tag">Python</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-icon">⚙️</div>
+      <div class="project-title">Java Code Optimization Agent</div>
+      <div class="project-desc">GenAI-powered agentic system that reviews and optimizes Java code — reducing development effort and improving code quality across engineering teams at scale.</div>
+      <div class="project-impact">Significantly reduced manual code review and optimization effort</div>
+      <div class="project-stack">
+        <span class="stack-tag">GenAI</span>
+        <span class="stack-tag">Agentic AI</span>
+        <span class="stack-tag">GCP</span>
+        <span class="stack-tag">Python</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-icon">💬</div>
+      <div class="project-title">NL-to-SQL System</div>
+      <div class="project-desc">LLM-powered natural language interface translating plain English business queries into optimized SQL — enabling non-technical stakeholders to self-serve data insights.</div>
+      <div class="project-impact">Eliminated dependency on data team for routine reporting queries</div>
+      <div class="project-stack">
+        <span class="stack-tag">LLMs</span>
+        <span class="stack-tag">NL-to-SQL</span>
+        <span class="stack-tag">GCP BigQuery</span>
+        <span class="stack-tag">Python</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-icon">🏗️</div>
+      <div class="project-title">Automated MLOps Pipeline</div>
+      <div class="project-desc">Scalable MLOps framework at Vodafone — automated ML training, deployment, drift detection, and outlier correction with real-time decision workflows and resource optimization.</div>
+      <div class="project-impact">Model accuracy improved to 90% · resource utilization optimized by 30%</div>
+      <div class="project-stack">
+        <span class="stack-tag">MLflow</span>
+        <span class="stack-tag">Airflow</span>
+        <span class="stack-tag">Docker</span>
+        <span class="stack-tag">Kubernetes</span>
+        <span class="stack-tag">AWS</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-icon">📊</div>
+      <div class="project-title">Predictive Modeling & Clustering Platform</div>
+      <div class="project-desc">End-to-end data solutions covering customer segmentation, predictive modeling, and forecasting — architected for scale with automated MLOps pipelines for training and deployment.</div>
+      <div class="project-impact">$400K annual savings delivered</div>
+      <div class="project-stack">
+        <span class="stack-tag">ML</span>
+        <span class="stack-tag">Clustering</span>
+        <span class="stack-tag">GCP Vertex AI</span>
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">SQL</span>
+      </div>
+    </div>
+    <div class="project-card" style="border-color: rgba(245,158,11,0.25); background: linear-gradient(135deg, var(--bg2), rgba(245,158,11,0.04));">
+      <div class="project-icon" style="background: var(--amber-dim); border-color: rgba(245,158,11,0.25);">📚</div>
+      <div class="project-title">Ultimate MLOps for Machine Learning Models</div>
+      <div class="project-desc">Comprehensive practitioner book covering end-to-end ML lifecycle — pipelines, deployment, monitoring, governance, and scalability. Published by OrangeAVA in 2024.</div>
+      <div class="project-impact" style="color: var(--amber);">Published globally · OrangeAVA 2024</div>
+      <div class="project-stack" style="margin-bottom: 1rem;">
+        <span class="stack-tag">MLOps</span>
+        <span class="stack-tag">Architecture</span>
+        <span class="stack-tag">Best Practices</span>
+        <span class="stack-tag">Deployment</span>
+        <span class="stack-tag">Monitoring</span>
+      </div>
+      <a href="https://orangeava.in/products/ultimate-mlops-for-machine-learning-models?srsltid=AfmBOoqgeIBkxzJqsUTSFSt_j2KVOzPtAF2GGQDzOSxmfMjKprr1zjMy" target="_blank" rel="noopener"
+         style="display:inline-flex; align-items:center; gap:0.5rem; background: var(--amber); color: #0d1117;
+                font-size:0.82rem; font-weight:600; padding:0.5rem 1.1rem; border-radius:5px;
+                text-decoration:none; transition: opacity 0.2s;"
+         onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+        🛒 Buy the Book →
+      </a>
+    </div>
+  </div>
+</section>
 
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-    <script src="js/custom.js"></script>
+<hr class="divider" />
 
-    <!-- Google Map -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="js/google-map.js"></script>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-tag">Experience</div>
+  <div class="section-title">Where I've worked</div>
+  <div class="timeline fade-up">
+    <div class="timeline-item">
+      <div class="timeline-period">Mar 2024 — Present</div>
+      <div class="timeline-body">
+        <div class="timeline-role">Lead Data Scientist</div>
+        <div class="timeline-company">Vodafone · Pune, India</div>
+        <ul class="timeline-points">
+          <li>Delivered enterprise GenAI solutions — RAG QnA bots, Java code-optimization agents, NL-to-SQL systems — cutting manual effort by 70–80% and saving 50+ engineering hours monthly</li>
+          <li>Built automated ML pipelines with drift detection and outlier correction, improving model accuracy to 90% and optimizing resource utilization by 30%</li>
+          <li>Architected scalable MLOps frameworks for deployment and real-time decision workflows</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-period">Mar 2022 — Feb 2024</div>
+      <div class="timeline-body">
+        <div class="timeline-role">Sr. Machine Learning Engineer</div>
+        <div class="timeline-company">Vodafone · Pune, India</div>
+        <ul class="timeline-points">
+          <li>Architected end-to-end data solutions — predictive modeling and clustering — achieving $400K annual savings</li>
+          <li>Developed reliable MLOps pipelines for automated training, deployment, and data/model scaling</li>
+          <li>Created an LLM-based QnA system, reducing information retrieval time and improving team productivity</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-period">Dec 2023 — Aug 2024</div>
+      <div class="timeline-body">
+        <div class="timeline-role">Author (Part Time)</div>
+        <div class="timeline-company">OrangeAVA Publications</div>
+        <ul class="timeline-points">
+          <li>Authored "Ultimate MLOps for Machine Learning Models" — designed the complete structure and wrote detailed chapters on pipelines, deployment, monitoring, governance, and scalability</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-period">Dec 2019 — Feb 2022</div>
+      <div class="timeline-body">
+        <div class="timeline-role">Sr. Data Scientist</div>
+        <div class="timeline-company">NextBee · Remote</div>
+        <ul class="timeline-points">
+          <li>Designed end-to-end segmentation and forecasting solutions, enhancing user engagement by 35%</li>
+          <li>Delivered actionable insights driving data-driven decisions and 7% revenue growth</li>
+          <li>Automated data and model scaling with MLOps best practices for efficiency and scalability</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-period">Nov 2018 — Nov 2019</div>
+      <div class="timeline-body">
+        <div class="timeline-role">Data Science Consultant</div>
+        <div class="timeline-company">Freelance · Remote</div>
+        <ul class="timeline-points">
+          <li>Developed data-driven solutions using predictive modeling, audio analysis, and data analysis — enhancing movie broadcast reach by 6%</li>
+          <li>Built and deployed a topic modeling module on GCP to extract key topics from text data</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-  </body>
+  <!-- AWARDS & CERTS -->
+  <div style="margin-top: 3rem;">
+    <div class="section-tag">Recognition</div>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem;">
+      <div style="background: var(--amber-dim); border: 1px solid rgba(245,158,11,0.2); border-radius: 8px; padding: 0.65rem 1.1rem; font-size: 0.82rem;">
+        🏆 <strong style="color: var(--amber);">Top Performer</strong> <span style="color: var(--text2);">— Vodafone, June 2023</span>
+      </div>
+      <div style="background: var(--amber-dim); border: 1px solid rgba(245,158,11,0.2); border-radius: 8px; padding: 0.65rem 1.1rem; font-size: 0.82rem;">
+        ⭐ <strong style="color: var(--amber);">Star Performer</strong> <span style="color: var(--text2);">— Vodafone, Feb 2023</span>
+      </div>
+      <div style="background: var(--amber-dim); border: 1px solid rgba(245,158,11,0.2); border-radius: 8px; padding: 0.65rem 1.1rem; font-size: 0.82rem;">
+        🎓 <strong style="color: var(--amber);">Best Research Paper</strong> <span style="color: var(--text2);">— IEEE, Dec 2018</span>
+      </div>
+      <div style="background: var(--teal-dim); border: 1px solid rgba(45,212,191,0.2); border-radius: 8px; padding: 0.65rem 1.1rem; font-size: 0.82rem;">
+        📜 <strong style="color: var(--teal);">NLP Specialization</strong> <span style="color: var(--text2);">— Coursera, May 2021</span>
+      </div>
+      <div style="background: var(--teal-dim); border: 1px solid rgba(45,212,191,0.2); border-radius: 8px; padding: 0.65rem 1.1rem; font-size: 0.82rem;">
+        🎓 <strong style="color: var(--teal);">M.E. Computer Engineering</strong> <span style="color: var(--text2);">— MIT Pune, Specialization: ML</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CONNECT / CALENDLY -->
+<section id="connect" style="text-align: center;">
+  <div class="section-tag" style="justify-content: center;">Connect</div>
+  <div class="section-title" style="margin-bottom: 1rem;">Let's talk</div>
+  <p style="color: var(--text2); font-weight: 300; margin-bottom: 3rem; font-size: 0.95rem;">
+    Open to AI Architect roles — Pune hybrid, remote Indian product companies, and remote EU & US opportunities.
+  </p>
+  <div class="calendly-section fade-up">
+    <div class="calendly-icon">📅</div>
+    <h2>Book a 15-min Intro Call</h2>
+    <p>Pick a time that works for you. No prep needed — just a quick conversation to see if there's a fit.</p>
+    <!-- Replace the div below with your actual Calendly embed script -->
+    <div class="calendly-inline-widget"
+     data-url="https://calendly.com/sdd-saurabhd/quick-intro-call"
+     style="min-width:320px;height:700px;">
+    </div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <a href="https://calendly.com/sdd-saurabhd/quick-intro-call" class="btn-primary" target="_blank" rel="noopener">
+      Book on Calendly →
+    </a>
+  </div>
+  <div class="contact-links fade-up">
+    <a href="https://linkedin.com/in/saurabhdorle" class="contact-link" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://github.com/saurabhdorle" class="contact-link" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      GitHub
+    </a>
+    <a href="35068590+saurabhdorle@users.noreply.github.com" class="contact-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      Email
+    </a>
+    <a href="Saurabh_Dorle_Resume.pdf" target="_blank" rel="noopener" class="contact-link" style="border-color: rgba(45,212,191,0.3); color: var(--teal);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Resume
+    </a>
+    <a href="https://scholar.google.com/citations?user=DrQyziQAAAAJ&hl=en" class="contact-link" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5z"/></svg>
+      Google Scholar
+    </a>
+    <a href="https://orangeava.in/products/ultimate-mlops-for-machine-learning-models?srsltid=AfmBOoqgeIBkxzJqsUTSFSt_j2KVOzPtAF2GGQDzOSxmfMjKprr1zjMy" class="contact-link" target="_blank" rel="noopener" style="border-color: rgba(245,158,11,0.3); color: var(--amber);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      Buy the Book
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Saurabh Dorle · AI / ML Architect · Pune, India</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
 </html>
